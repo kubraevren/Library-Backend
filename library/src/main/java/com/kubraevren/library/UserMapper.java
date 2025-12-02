@@ -1,0 +1,31 @@
+package com.kubraevren.library;
+
+import com.kubraevren.library.dto.UserRequestDto;
+import com.kubraevren.library.dto.UserResponseDto;
+import com.kubraevren.library.model.UserEntity;
+import org.springframework.stereotype.Component;
+
+@Component
+public class UserMapper {
+    public UserResponseDto toDto(UserEntity entity){
+//Burada entity'i dto'ya çeviriyoruz. dışarıya veri çıkarırken
+        UserResponseDto dto=new UserResponseDto();
+
+        dto.setEmail(entity.getEmail());
+        dto.setUsername(entity.getUsername());
+
+        return dto;
+    }
+
+
+    public UserEntity toEntity(UserRequestDto dto){
+//Burada dto'yu entity'ye çeviriyoruz. dışardan veri alırken
+        UserEntity entity=new UserEntity();
+
+        entity.setEmail(dto.getEmail());
+        entity.setUsername(dto.getUsername());
+        entity.setPassword(dto.getPassword());
+
+        return entity;
+    }
+}

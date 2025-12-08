@@ -17,7 +17,7 @@ public class BookEntity {
 
     @Id
     @Column(unique=true, nullable=false)
-    private Long serial_no;
+    private Long serialNo;
 
     @Column(unique=false, nullable=false)
     private String title;
@@ -26,7 +26,7 @@ public class BookEntity {
     private String author;
 
     @Column(unique=false, nullable=false)
-    private int page_count;
+    private int pageCount;
 
     @Column(unique=false, nullable=true)
     @Enumerated(EnumType.STRING)
@@ -36,10 +36,12 @@ public class BookEntity {
     private String category;
 
     @Column(unique=false, nullable=true)
-    private String image_url;
+    private String imageUrl;
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "user_id",nullable = false)
     private UserEntity user;
-
+/*
+@JoinColumn(name = "user_id", nullable = true)
+ */
 }

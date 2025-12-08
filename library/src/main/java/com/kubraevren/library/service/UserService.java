@@ -1,5 +1,5 @@
 package com.kubraevren.library.service;
-import com.kubraevren.library.UserMapper;
+import com.kubraevren.library.mapper.UserMapper;
 import com.kubraevren.library.dto.UserRequestDto;
 import com.kubraevren.library.dto.UserResponseDto;
 import com.kubraevren.library.model.UserEntity;
@@ -16,9 +16,13 @@ public class UserService {
     public UserResponseDto addUser(UserRequestDto dto) {
        UserEntity  user=mapper.toEntity(dto);
         UserEntity kaydedilenVeri= userRepository.save(user);
-         //userRepository bize id içeren (entity sınıfı yani) yeni bir entity fırlatır.
        return mapper.toDto(kaydedilenVeri);
     }
+
+
+
+
+    //userRepository bize id içeren (entity sınıfı yani) yeni bir entity fırlatır.
 
 //DTO alıyoruz → çünkü dışarıdan gelen veri onun yapısında.
 //Entity'ye çeviriyoruz → çünkü veritabanı onunla konuşur.

@@ -1,4 +1,4 @@
-package com.kubraevren.library;
+package com.kubraevren.library.mapper;
 
 import com.kubraevren.library.dto.UserRequestDto;
 import com.kubraevren.library.dto.UserResponseDto;

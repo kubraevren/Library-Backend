@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class UserEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +23,6 @@ public class UserEntity {
     @Column(unique=true, nullable=false)
     private String email;
 
-    @Column(unique=true, nullable=false)
+    @Column(nullable=false)
     private String password;
 }

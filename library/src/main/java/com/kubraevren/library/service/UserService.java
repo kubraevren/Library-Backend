@@ -19,7 +19,24 @@ public class UserService {
        return mapper.toDto(kaydedilenVeri);
     }
 
+    public UserResponseDto login(UserRequestDto dto) { // LoginRequestDto yerine UserRequestDto yazdık
 
+        // 1. Email kontrolü
+        UserEntity user = userRepository.findByEmail(dto.getEmail())
+                .orElseThrow(() -> new RuntimeException("Kullanıcı bulunamadı!"));
+
+        // 2. Şifre kontrolü
+        if (!user.getPassword().equals(dto.getPassword())) {
+            throw new RuntimeException("Şifre hatalı!");
+        }
+
+        // 3. Cevap hazırlama
+        UserResponseDto response = new UserResponseDto();
+        response.setUsername(user.getUsername());
+        response.setEmail(user.getEmail());
+
+        return response;
+    }
 
 
     //userRepository bize id içeren (entity sınıfı yani) yeni bir entity fırlatır.

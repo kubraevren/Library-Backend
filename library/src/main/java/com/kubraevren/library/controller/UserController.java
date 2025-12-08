@@ -18,4 +18,10 @@ public class UserController {
     public UserResponseDto addUser(@RequestBody UserRequestDto dto){
         return userService.addUser(dto);
     }
+
+
+    @PostMapping("/login")
+    public UserResponseDto login(@RequestBody UserRequestDto dto) {
+        return userService.login(dto);
+    }
 }

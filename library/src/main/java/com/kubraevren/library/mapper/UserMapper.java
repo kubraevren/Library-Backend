@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserMapper {
     public UserResponseDto toDto(UserEntity entity){
-//Burada entity'i dto'ya çeviriyoruz. dışarıya veri çıkarırken
         UserResponseDto dto=new UserResponseDto();
 
         dto.setEmail(entity.getEmail());
@@ -19,7 +18,6 @@ public class UserMapper {
 
 
     public UserEntity toEntity(UserRequestDto dto){
-//Burada dto'yu entity'ye çeviriyoruz. dışardan veri alırken
         UserEntity entity=new UserEntity();
 
         entity.setEmail(dto.getEmail());

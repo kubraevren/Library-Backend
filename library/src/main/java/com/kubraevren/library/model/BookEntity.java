@@ -41,7 +41,5 @@ public class BookEntity {
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "user_id",nullable = false)
     private UserEntity user;
-/*
-@JoinColumn(name = "user_id", nullable = true)
- */
+
 }

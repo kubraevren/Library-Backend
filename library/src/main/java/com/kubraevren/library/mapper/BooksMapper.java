@@ -9,8 +9,6 @@ import org.springframework.stereotype.Component;
 public class BooksMapper {
 
     public BookResponseDto toDto(BookEntity entity) {
-
-//Burada entity'i dto'ya çeviriyoruz. dışarıya veri çıkarırken
         BookResponseDto dto = new BookResponseDto();
         dto.setSerialNo(entity.getSerialNo());
         dto.setTitle(entity.getTitle());
@@ -28,8 +26,6 @@ public class BooksMapper {
     }
 
     public BookEntity toEntity(BookRequestDto dto) {
-
-//Burada dto'yu entity'ye çeviriyoruz. dışardan veri alırken
         BookEntity entity = new BookEntity();
         entity.setSerialNo(dto.getSerialNo());
         entity.setTitle(dto.getTitle());

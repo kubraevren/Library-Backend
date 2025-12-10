@@ -1,0 +1,21 @@
+package com.kubraevren.library.exception;
+
+import org.springframework.http.HttpStatus;
+
+public class ApplicationException extends RuntimeException{
+    private static final long serialVersionUID = 1L;
+    private final HttpStatus status;
+    public ApplicationException(String message) {
+        super(message);
+        this.status = HttpStatus.NOT_FOUND;
+    }
+
+    public ApplicationException(HttpStatus status, String message) {
+        super(message);
+        this.status = status;
+    }
+
+    public HttpStatus getStatus() {
+        return status;
+    }
+}

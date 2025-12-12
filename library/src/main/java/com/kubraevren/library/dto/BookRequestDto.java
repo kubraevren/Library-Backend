@@ -32,7 +32,6 @@ public class BookRequestDto {
     private String category;
     private String imageUrl;
 
-    @NotNull(message = "User ID boş olamaz!")
-    private Long userId;
+
 
 }

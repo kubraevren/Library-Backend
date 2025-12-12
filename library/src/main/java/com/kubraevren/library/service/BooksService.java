@@ -21,11 +21,13 @@ public class BooksService {
     private final UserRepository userRepository;
     private final BooksMapper booksMapper;
 
-    public BookResponseDto addBooks(BookRequestDto dto) {
-        UserEntity user = userRepository.findById(dto.getUserId())
+    public BookResponseDto addBooks(BookRequestDto dto,Long userId) {
+        UserEntity user = userRepository.findById(userId)
                 .orElseThrow(() -> new ApplicationException("Kullanıcı bulunamadı!"));
+
         BookEntity book = booksMapper.toEntity(dto);
         book.setUser(user);
+
         BookEntity savedBook = booksRepository.save(book);
         return booksMapper.toDto(savedBook);
     }
@@ -37,8 +39,8 @@ public class BooksService {
         booksRepository.deleteById(id);
     }
 
-    public List<BookResponseDto> getBooks() {
-        return booksRepository.findAll()
+    public List<BookResponseDto> getBooks(Long userId) {
+        return booksRepository.findByUserId(userId)
                 .stream()
                 .map(booksMapper::toDto)
                 .toList();

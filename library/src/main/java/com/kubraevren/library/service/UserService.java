@@ -26,10 +26,6 @@ public class UserService {
         if (!user.getPassword().equals(dto.getPassword())) {
             throw new ApplicationException("Şifre hatalı!");
         }
-        UserResponseDto response = new UserResponseDto();
-        response.setUsername(user.getUsername());
-        response.setEmail(user.getEmail());
-
-        return response;
+        return mapper.toDto(user);
     }
 }

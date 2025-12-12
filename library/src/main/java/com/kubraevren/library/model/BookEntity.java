@@ -38,7 +38,7 @@ public class BookEntity {
     @Column(unique=false, nullable=true)
     private String imageUrl;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name = "user_id",nullable = false)
     private UserEntity user;
 
